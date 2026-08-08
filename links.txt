@@ -1,0 +1,130 @@
+<svg
+          viewBox="0 0 250 100"
+          className="h-full w-full"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M1 99 H249 V1 H1 Z"
+            opacity="0.5"
+            strokeWidth="2px"
+            fill="none"
+          />
+          <motion.path
+            d="M1 99 H249 V1 H1 Z"
+            strokeWidth="3px"
+            fill="none"
+            variants={{
+              initial: { pathLength: 0 },
+              whileHover: {
+                pathLength: 1,
+                transition: {
+                  duration: 0.8,
+                  delay: 0.3,
+                  ease: [0.24, 0.43, 0.15, 0.97] as const,
+                },
+              },
+            }}
+          />
+        </svg>
+
+const data: DataItem[] = [
+        {
+            title: [<>ELEMENTIS</>, <>Innovation Culture</>],
+            description: {
+                mobile: [
+                    <>We foster a culture of Innovation that </>,
+                    <>enriches lives through transformative</>,
+                    <>solutions and innovative ideas that</>,
+                    <>resonate with our global Community.</>,
+                ],
+                desktop: [
+                    <>We foster a culture of Innovation that enriches</>,
+                    <>lives through transformative solutions and</>,
+                    <>innovative ideas that resonate with our global</>,
+                    <>Community.</>,
+                ],
+            },
+        },
+        {
+            title: [<>Exceptional Wood</>, <>Construction</>],
+            description: {
+                mobile: [
+                    <>Our high-quality glue laminated timber</>,
+                    <>revolutionizes tropical climate</>,
+                    <>construction byseamlessly combining</>,
+                    <>natural elegance, unparalleled durability,</>,
+                    <>and environmental responsibility.</>,
+                ],
+                desktop: [
+                    <>Our high-quality glue laminated timber</>,
+                    <>revolutionizes tropical climate construction by</>,
+                    <>seamlessly combining natural elegance,</>,
+                    <>unparalleled durability, and environmental</>,
+                    <>responsibility.</>,
+                ],
+            },
+        },
+        {
+            title: [<>Innovative Glass</>, <>Solutions</>],
+            description: {
+                mobile: [
+                    <>The innovative Low-E solar control glass</>,
+                    <>stands out for its unparalleled ability to</>,
+                    <>blend energy efficiency, enhanced</>,
+                    <>comfort, and breathtaking aesthetic</>,
+                    <>appeal.</>,
+                ],
+                desktop: [
+                    <>The innovative Low-E solar control glass stands</>,
+                    <>out for its unparalleled ability to blend energy</>,
+                    <>efficiency, enhanced comfort, and breathtaking</>,
+                    <>aesthetic appeal.</>,
+                ],
+            },
+        },
+        {
+            title: [<>World First Climate</>, <>Control</>],
+            description: {
+                mobile: [
+                    <>We pioneer an innovative climate</>,
+                    <>control system that outperforms any</>,
+                    <>other option, ending the battle with</>,
+                    <>moid for an infinitely healthier</>,
+                    <>experience. When combined with our</>,
+                    <>solar energy system it provides a</>,
+                    <>world-first sustainable solution.</>,
+                ],
+                desktop: [
+                    <>We pioneer an innovative climate control</>,
+                    <>system that outperforms any other option,</>,
+                    <>ending the battle with moid for an infinitely </>,
+                    <>healthier experience. When combined with our</>,
+                    <>solar energy system it provides a world-first</>,
+                    <>sustainable solution.</>,
+                ],
+            },
+        },
+        {
+            title: [<>State-of-the-Art</>, <>Design</>],
+            description: {
+                mobile: [
+                    <>By blending natural elements,panoramic</>,
+                    <>views, tactile textures, luxury touches,</>,
+                    <>and sustainable design principles, we</>,
+                    <>create a memorable and inviting hotel</>,
+                    <>interior that reflects ELEMENTIS</>,
+                    <>modern, wooden eco concept.</>,
+                ],
+                desktop: [
+                    <>By blending natural elements,panoramic views,</>,
+                    <>tactile textures, luxury touches, and sustainable</>,
+                    <>design principles, we create a memorable and</>,
+                    <>inviting hotel interior that reflects ELEMENTIS</>,
+                    <>modern, wooden eco concept.</>,
+                ],
+            },
+        },
+    ];
+
+const COUNTRY_DATA_URL =
+  "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json";
