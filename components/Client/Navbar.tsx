@@ -6,6 +6,8 @@ import LogoFull from "@/components/SVGComponents/LogoFull"
 import { motion, useMotionValueEvent, useScroll } from "motion/react"
 import Link from "next/link"
 import { useState } from "react"
+import DashedLink from "../Server/DashedLink"
+import cn from "@/utils/cn"
 
 
 const Navbar = () => {
@@ -91,6 +93,27 @@ const Navbar = () => {
             animate: { fill: "#2B3530" },
           }}
         />
+
+        <nav className="hidden gap-5 md:flex" aria-label="navigation">
+          {navItems.map((eachItem) => (
+            <Link href={eachItem.href} key={eachItem.children}>
+              <DashedLink
+                className={cn(
+                  "text-base font-normal",
+                  state
+                    ? "[&>.animated-underline]:bg-[#2b3530]"
+                    : "[&>.animated-underline]:bg-white",
+                )}
+                variants={{
+                  animate: { color: "#2b3530" },
+                  initial: { color: "#ffffff" },
+                }}
+              >
+                {eachItem.children}
+              </DashedLink>
+            </Link>
+          ))}
+        </nav>
       </motion.div>
     </>
   )

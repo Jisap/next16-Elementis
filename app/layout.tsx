@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ReactLenis } from "@/utils/lenis"
 import { WindowSizeProvider } from "./providers";
 import Navbar from "@/components/Client/Navbar";
 
@@ -26,10 +27,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <WindowSizeProvider>
-          <Navbar />
-          {children}
-        </WindowSizeProvider>
+        <ReactLenis root>
+          <WindowSizeProvider>
+            <Navbar />
+            {children}
+          </WindowSizeProvider>
+        </ReactLenis>
       </body>
     </html>
   );
