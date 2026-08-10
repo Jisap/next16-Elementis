@@ -8,6 +8,11 @@ import Link from "next/link"
 import { useState } from "react"
 import DashedLink from "../Server/DashedLink"
 import cn from "@/utils/cn"
+import BorderedButton from "../Server/BorderedButton"
+import NavigateSVG from "../SVGComponents/NavigateSVG"
+import AnimatedBurger from "../SVGComponents/AnimatedBurger"
+import CloseIcon from "../SVGComponents/CloseIcon"
+import ResponsiveSideBar from "./ResponsiveSidebar"
 
 
 const Navbar = () => {
@@ -98,6 +103,7 @@ const Navbar = () => {
           {navItems.map((eachItem) => (
             <Link href={eachItem.href} key={eachItem.children}>
               <DashedLink
+                animate={state ? "animate" : "initial"}
                 className={cn(
                   "text-base font-normal",
                   state
@@ -114,7 +120,59 @@ const Navbar = () => {
             </Link>
           ))}
         </nav>
+
+        <div className="flex items-center gap-8">
+          <BorderedButton
+            className={cn(
+              "relative hidden w-fit cursor-pointer items-center gap-4 px-5 py-4.5 text-base leading-[0.8] font-normal md:flex",
+              state
+                ? "text-[#2b3530] [&_svg]:stroke-[#2b3530]"
+                : "text-white [&_svg]:stroke-[white]",
+            )}
+          >
+            Join Us
+            <NavigateSVG
+              style={{ fill: state ? "#ffffff" : "#2b3530" }}
+              className="mr-2.5 size-2.5"
+            />
+          </BorderedButton>
+
+          <motion.button
+            initial="initial"
+            whileHover="whileHover"
+            onClick={() => {
+              const isOpen = openSideBar;
+              if (isMobile) {
+                if (!isOpen) {
+                  //about to open
+                  setState(true);
+                } else {
+                  //about to close -> the variant of the nav should be based on the scrollY
+                  const scrollValue = scrollY.get() / window.innerHeight;
+                  setState(scrollValue > 0.5);
+                }
+              }
+              setOpenSideBar(!isOpen);
+            }}
+            className="cursor-pointer p-2"
+            disabled={isMobile == null}
+          >
+            {isMobile && openSideBar ? (
+              <CloseIcon className="size-7 [&_path]:stroke-[1px]" />
+            ) : (
+              <AnimatedBurger
+                className={cn(state ? "stroke-[#2b3530]" : "stroke-white")}
+              />
+            )}
+          </motion.button>
+        </div>
       </motion.div>
+
+      <ResponsiveSideBar
+        isMobile={isMobile}
+        openSideBar={openSideBar}
+        setOpenSideBar={setOpenSideBar}
+      />
     </>
   )
 }
