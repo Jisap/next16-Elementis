@@ -18,6 +18,7 @@ function ResponsiveSideBar({
     return null;
   }
   return (
+    // Se usa AnimatePresence para que el sidebar se monte y desmonte suavemente.
     <AnimatePresence>
       {openSideBar && (
         <>
