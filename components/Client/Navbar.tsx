@@ -141,18 +141,16 @@ const Navbar = () => {
             initial="initial"
             whileHover="whileHover"
             onClick={() => {
-              const isOpen = openSideBar;
-              if (isMobile) {
-                if (!isOpen) {
-                  //about to open
+              const isOpen = openSideBar; // 1. Guardo el estado actual (false)
+              if (isMobile) {                // Solo se ejecuta en móvil
+                if (!isOpen) {               // Si el sidebar está cerrado -> cambia el logo a oscuro (state=true) al hacer click y se abre el sidebar
                   setState(true);
-                } else {
-                  //about to close -> the variant of the nav should be based on the scrollY
-                  const scrollValue = scrollY.get() / window.innerHeight;
-                  setState(scrollValue > 0.5);
+                } else {                                                  // Usuario cierra el sidebar 
+                  const scrollValue = scrollY.get() / window.innerHeight; // se calcula el scroll real (0 estamos arriba de la pag. unico sitio donde el navbar muestra el icono de cierre )
+                  setState(scrollValue > 0.5);                            // se cambia el estado del navbar segun el scroll real (0 no es mayor a 0.5 -> state=false navbar blanco. 
                 }
               }
-              setOpenSideBar(!isOpen);
+              setOpenSideBar(!isOpen); // 2. Cambia el estado. Si estaba true se vuelve false y viceversa.
             }}
             className="cursor-pointer p-2"
             disabled={isMobile == null}
