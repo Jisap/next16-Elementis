@@ -24,10 +24,9 @@ export function useImageReveal() {
    */
   const handleFocus = useCallback(
     (newFocus: number, directionalSensitive: boolean) => {
-      // Guardia: evita animar si ya estamos en el target
-      if (newFocus !== focus.current) {
-        // Si estamos en una imagen nueva buscamos en el dom la que vamos a revelar
-        const target = imgContainerRef.current?.querySelector(
+
+      if (newFocus !== focus.current) {                           // Guardia: evita animar si ya estamos en el target
+        const target = imgContainerRef.current?.querySelector(    // Si estamos en una imagen nueva buscamos en el dom la que vamos a revelar
           `[data-index="${newFocus}"]`
         );
         if (!target) return;
@@ -41,17 +40,16 @@ export function useImageReveal() {
         animate(
           target,
           {
-            // zIndex dinámico garantiza que la nueva capa siempre esté encima de las anteriores
-            zIndex: zIndex.current,
+            zIndex: zIndex.current,                               // zIndex dinámico garantiza que la nueva capa siempre esté encima de las anteriores
 
-            // Keyframes de clip-path: de completamente oculto a completamente visible
+            // Keyframes de clip-path: de completamente oculto 
+            // a completamente visible
             // inset(top right bottom left): 100% en un eje = invisible
             clipPath: isUpward
-              ? ["inset(0% 0% 100% 0%)", "inset(0% 0% 0% 0%)"]   // ↓ Cortina baja-arriba
-              : ["inset(100% 0% 0% 0%)", "inset(0% 0% 0% 0%)"],  // ↑ Cortina sube-abajo
+              ? ["inset(0% 0% 100% 0%)", "inset(0% 0% 0% 0%)"]    // ↓ Cortina baja-arriba
+              : ["inset(100% 0% 0% 0%)", "inset(0% 0% 0% 0%)"],   // ↑ Cortina sube-abajo
 
-            // Scale sutil (1.15→1) añade sensación de profundidad durante la transición
-            scale: [1.15, 1],
+            scale: [1.15, 1],                                     // Scale sutil (1.15→1) añade sensación de profundidad durante la transición
           },
           {
             // Duraciones DESACOPLADAS por propiedad:
@@ -67,8 +65,8 @@ export function useImageReveal() {
           },
         );
 
-        // Actualiza refs DESPUÉS de lanzar la animación (no dispara re-render)
-        focus.current = newFocus;
+
+        focus.current = newFocus;     // Actualiza refs DESPUÉS de lanzar la animación (no dispara re-render)           
         zIndex.current += 1;
       }
     },

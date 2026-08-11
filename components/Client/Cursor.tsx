@@ -44,8 +44,7 @@ export default function Cursor({
           initial="initial"
           animate="animate"
           exit="exit"
-          // isMobile se pasa como custom prop → disponible en variantes como parámetro
-          custom={isMobile}
+          custom={isMobile} // isMobile se pasa como custom prop → disponible en variantes como parámetro
           variants={variants}
           className={cn(
             // pointer-events-none: CRÍTICO. El cursor personalizado NUNCA debe
