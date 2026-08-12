@@ -3,6 +3,8 @@
 import { useIsMobile } from "@/app/providers"
 import { useState } from "react"
 import HeroMobileClient from "./Mobile";
+import HeroDesktopClient from "./Desktop";
+import VideoPlayer from "@/components/VideoPlayer";
 
 
 
@@ -16,11 +18,14 @@ const HeroClient = () => {
       {isMobile ? (
         <HeroMobileClient playIntro={playIntro} setPlayIntro={setPlayIntro} />
       ) : (
-        // <HeroDesktopClient setPlayIntro={setPlayIntro} />
-        <>
-          heroDesktopclient
-        </>
+        <HeroDesktopClient setPlayIntro={setPlayIntro} />
       )}
+
+      <VideoPlayer
+        isMobile={isMobile}
+        playIntro={playIntro}
+        setPlayIntro={setPlayIntro}
+      />
     </>
   )
 }

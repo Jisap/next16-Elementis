@@ -58,7 +58,7 @@ export default function HeroMobileClient({
         Esto es correcto: el cursor es INDICADOR VISUAL, no elemento interactivo real.
       */}
       <Cursor
-        renderCursor={!playIntro}
+        renderCursor={!playIntro} // renderiza si playIntro es false
         isMobile={true}
         className="absolute grid aspect-square w-11 place-items-center rounded-full"
       >
