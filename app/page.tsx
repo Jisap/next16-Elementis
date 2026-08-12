@@ -1,18 +1,13 @@
-import Navbar from "@/components/Client/Navbar"
-import Hero from "@/sections/Hero/Client"
-
-
-
-
-
+import Navbar from "@/components/Client/Navbar";
+import Hero from "@/sections/Hero/Index";
 
 const Home = () => {
   return (
-    <main className="min-h-[200vh] bg-[#2b3530]">
+    <main className="min-h-[200vh]">
       <Navbar />
       <Hero />
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
