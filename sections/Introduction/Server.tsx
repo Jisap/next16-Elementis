@@ -1,5 +1,6 @@
 import ResponsiveImage from "@/components/Client/ResponsiveImage";
 import ResponsiveMaskTextVariant from "@/components/Client/ResponsiveMaskTextVariant";
+import MaskText from "@/components/Server/MaskText";
 import SectionTitle from "@/components/Server/SectionTitle";
 import IntroductionImage from "@/public/Introduction.png";
 import * as motion from "motion/react-client";
@@ -56,6 +57,21 @@ const IntroductionServer = () => {
             <Fragment key="d-6">on the globe.</Fragment>,
           ]}
           className="text-24 leading-none md:text-40 [&>:first-child]:indent-23"
+        />
+
+        <MaskText
+          lines={[
+            <Fragment key="l-1">At ELEMENTIS, we use the Integrative</Fragment>,
+            <Fragment key="l-2">Wellness approach that considers</Fragment>,
+            <Fragment key="l-3">
+              psychological, physical, and nutritional
+            </Fragment>,
+            <Fragment key="l-4">
+              aspects of your life to improve overall
+            </Fragment>,
+            <Fragment key="l-5">well-being and balance.</Fragment>,
+          ]}
+          className="text-base leading-[1.3] font-normal md:text-lg"
         />
       </div>
     </div>

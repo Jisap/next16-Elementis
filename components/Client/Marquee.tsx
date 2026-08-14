@@ -65,10 +65,10 @@ export default function Marquee({ children, max, speed, className, style }: Marq
   const { scrollY } = useScroll();             // MotionValue del scroll vertical global
   const scrollVelocity = useVelocity(scrollY); // Velocidad en función del scroll
   const velocityFactor = useTransform(         // Factor de multiplicación de velocidad
-    useSpring(scrollVelocity, { mass: 1, damping: 50, stiffness: 600 }),
-    [0, 1000],
-    [0, 4],
-    { clamp: false }
+    useSpring(scrollVelocity, { mass: 1, damping: 50, stiffness: 600 }), // Suavizado físico del scroll
+    [0, 1000],                                                           // Rango de velocidad del scroll (0 a 1000)
+    [0, 4],                                                              // Rango de multiplicación de velocidad (0 a 4)
+    { clamp: false }                                                     // Sin clamp (puede ser negativo)
   );
 
   // ─── TRANSFORMACIÓN CON LOOP ───────────────────────────────

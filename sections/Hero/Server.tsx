@@ -76,7 +76,7 @@ export default function HeroServer() {
           transition={{
             delayChildren: 0.4,
           }}
-          className="md:[line-height:1.2]"
+          className="md:leading-[1.2]"
           lines={[
             <>A lifestyle revolution for a</>,
             <>sustaiable fulfilling future</>,
@@ -87,7 +87,7 @@ export default function HeroServer() {
             delayChildren: 0.6,
           }}
           lines={[<>Scroll to Explore</>]}
-          className="flex-1 text-end text-nowrap [filter:blur(0.25px)] max-md:hidden"
+          className="flex-1 text-end text-nowrap filter-[blur(0.25px)] max-md:hidden"
         />
         <Br />
       </div>

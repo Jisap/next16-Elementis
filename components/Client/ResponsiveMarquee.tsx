@@ -10,7 +10,7 @@ import { PropsWithChildren } from "react";
 // │                                 │
 // │  useIsMobile()                  │
 // │       │                         │
-// │   ┌───┴───┐                     │
+// │    ┌───┴───┐                     │
 // │   true    false                 │
 // │    │        │                   │
 // │  mobile  desktop                │
