@@ -42,37 +42,38 @@ import { useIsMobile } from "@/app/providers";
  * - CustomCursor para mostrar un cursor personalizado en desktop.
  */
 
-//                        SCROLL
-//                          │
-//                          ▼
-//                   parentProgress
-//                          │
-//         ┌────────────────┴────────────────┐
-//         │                                 │
-//         ▼                                 ▼
-//  ClipImageCard                    Innovation.Container
-//         │                                 │
-//         │                                 │
-//   currentState                    localProgress
-//         │                                 │
-//         ▼                                 ▼
-//   AnimatedMaskText                  useMaskImage
-//         │                                 │
-//         │                                 ▼
-//         │                             mask-image
-//         │                                 │
-//         ▼                                 ▼
-//      TEXT                              BACKGROUND
-//         │
-//         │
-//         ▼
-//  ClipImageContainer
-//         │
-//         ├── clipPath
-//         └── scale
-//         │
-//         ▼
-//      CARD IMAGE
+//                          SCROLL
+//                            │
+//                            ▼
+//                   ┌─────────────────┐
+//                   │ parentProgress  │
+//                   │      0 → 1      │
+//                   └────────┬────────┘
+//                            │
+//              ┌─────────────┴─────────────┐
+//              │                           │
+//              ▼                           ▼
+//       BACKGROUND SYSTEM             CARD SYSTEM
+//              │                           │
+//              ▼                           ▼
+//  Innovation.Container            ClipImageCard
+//              │                           │
+//              ▼                           ▼
+//  localScrollYProgress             currentState
+//              │                    1 → 2 → 3 → 4 → 5
+//              ▼                           │
+//        useMaskImage              ┌───────┴───────┐
+//              │                    │               │
+//              ▼                    ▼               ▼
+//        mask-image             MaskText      ClipImageContainer
+//              │                    │               │
+//              ▼                    ▼               ▼
+//        background               texto          clip-path
+//         reveal                                  +
+//              │                                  scale
+//              ▼                                    │
+//         background                               ▼
+//           image                               card image
 
 function Innovation() {
   /**
@@ -82,10 +83,6 @@ function Innovation() {
    */
   const isMobile = useIsMobile();
 
-  /**
-   * Router utilizado para navegar cuando el usuario
-   * hace click sobre la sección.
-   */
   const router = useRouter();
 
   /**
@@ -284,10 +281,13 @@ Innovation.Container = function Container({
    *
    * Cada imagen tiene un intervalo de 25%.
    *
-   * Ejemplo para index = 2:
-   *
-   * 0.50 → 0
-   * 0.75 → 1
+   *              scrollYProgress
+   * 0────────.25────────.50────────.75────────1
+   * │          │          │          │
+   * │ Image 1  │ Image 2  │ Image 3  │ Image 4
+   * │          │          │          │
+   *              LocalScrollYProgress
+   * 0─────────1 0 ────────1 0 ───────1 0────────1
    */
   const localScrollYProgress = useTransform(
     scrollYProgress,
