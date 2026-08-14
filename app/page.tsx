@@ -1,3 +1,4 @@
+import Innovation from "@/components/Client/Innovation";
 import Navbar from "@/components/Client/Navbar";
 import Hero from "@/sections/Hero/Index";
 import Introduction from "@/sections/Introduction";
@@ -10,6 +11,7 @@ const Home = () => {
       <Hero />
       <Introduction />
       <WellnessSanctuary />
+      <Innovation />
     </main>
   );
 };
