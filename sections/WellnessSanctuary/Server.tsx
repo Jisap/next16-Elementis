@@ -2,6 +2,10 @@ import ResponsiveImage from "@/components/Client/ResponsiveImage";
 import Image from "next/image";
 import { Fragment } from "react/jsx-runtime";
 import WellnessSanctuaryImage from "@/public/WellnessSanctuaryImage.png";
+import SectionTitle from "@/components/Server/SectionTitle";
+import ResponsiveMaskTextVariant from "@/components/Client/ResponsiveMaskTextVariant";
+import MaskText from "@/components/Server/MaskText";
+import StyledLink from "@/components/Server/StyledLink";
 
 
 
@@ -33,6 +37,32 @@ const Server = () => {
           className="h-auto w-full"
         />
       </ResponsiveImage>
+
+      <div className="flex flex-col justify-center px-3-75 py-40 md:py-0">
+        <div className="flex flex-col gap-12 md:ml-36 md:w-fit md:gap-16">
+          <SectionTitle>Wellness Sanctuary</SectionTitle>
+
+          <ResponsiveMaskTextVariant
+            {...textLines}
+            className="text-24 leading-none md:text-40"
+          />
+
+          <MaskText
+            lines={[
+              <>At ELEMENTIS, we use the Integrative</>,
+              <>Wellness approach that considers</>,
+              <>psychological, physical, and nutritional</>,
+              <>aspects of your life to improve overall</>,
+              <>well-being and balance.</>,
+            ]}
+            className="text-lg leading-[1.3] font-normal"
+          />
+
+          <StyledLink href="https://elementis.co/wellness">
+            Discover ELEMENTIS
+          </StyledLink>
+        </div>
+      </div>
     </div>
   )
 }
