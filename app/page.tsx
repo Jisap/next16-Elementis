@@ -3,6 +3,7 @@ import Navbar from "@/components/Client/Navbar";
 import ElementisStory from "@/sections/ElementisStory";
 import Hero from "@/sections/Hero/Index";
 import Introduction from "@/sections/Introduction";
+import SustainableRetreat from "@/sections/SustainableRetreat";
 import WellnessSanctuary from "@/sections/WellnessSanctuary";
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <WellnessSanctuary />
       <Innovation />
       <ElementisStory />
+      <SustainableRetreat />
     </main>
   );
 };
