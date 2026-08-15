@@ -326,3 +326,41 @@ const StyledLInkClient = ({
 };
 
 export default StyledLInkClient;
+
+// Diagrama de flujo del cambio de imagen:
+// StyledLInkClient
+//       │
+//       │ onMouseEnter
+//       ▼
+// handleMouseEnter()
+//       │
+//       │ handleFocus(index, true)
+//       ▼
+// useImageReveal
+//       │
+//       ├── busca [data-index="index"]
+//       │
+//       ├── aumenta z-index
+//       │
+//       ├── calcula dirección
+//       │
+//       ├── anima clipPath
+//       │
+//       └── anima scale
+//       │
+//       ▼
+// Imagen correspondiente
+
+// Diagrama de flujo de los links:
+// StyledLInkClient
+//       │
+//       ├── mouse entra
+//       │
+//       ▼
+// handleMouseEnter()
+//       │
+//       ▼
+// animate(scope.current)
+//       │
+//       ├── height: 0% → 100%
+//       └── inset: arriba / abajo
