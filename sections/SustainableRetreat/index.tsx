@@ -1,6 +1,7 @@
 import ResponsiveMarquee from '@/components/Client/ResponsiveMarquee'
 import ResponsiveMaskTextVariant from '@/components/Client/ResponsiveMaskTextVariant'
-import React, { Fragment } from 'react'
+import SustainableRetreatClient from '@/components/Client/SustainableRetreatClient'
+import { Fragment } from 'react'
 
 const SustainableRetreat = () => {
   return (
@@ -65,7 +66,42 @@ const SustainableRetreat = () => {
             className="text-base leading-[1.33] md:text-lg"
           />
 
+          <ResponsiveMaskTextVariant
+            desktop={[
+              <Fragment key="d2-0">
+                We envision a world where mind, body, and
+              </Fragment>,
+              <Fragment key="d2-1">
+                spirit thrive in harmony, fostering
+              </Fragment>,
+              <Fragment key="d2-2">
+                connections to each other and the natural
+              </Fragment>,
+              <Fragment key="d2-3">
+                world, redefining the concept of fulfillment
+              </Fragment>,
+              <Fragment key="d2-4">beyond material success.</Fragment>,
+            ]}
+            mobile={[
+              <Fragment key="m2-0">
+                We envision a world where mind, body,
+              </Fragment>,
+              <Fragment key="m2-1">
+                and spirit thrive in harmony, fostering
+              </Fragment>,
+              <Fragment key="m2-2">
+                connections to each other and the natural
+              </Fragment>,
+              <Fragment key="m2-3">
+                world, redefining the concept of fulfillment
+              </Fragment>,
+              <Fragment key="m2-4">beyond material success.</Fragment>,
+            ]}
+            className="text-base leading-[1.33] md:text-lg"
+          />
         </div>
+
+        <SustainableRetreatClient />
       </div>
     </div>
   )
