@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image, { StaticImageData } from "next/image";
 import Image1 from "@/public/group/discover-elementis.png";
@@ -10,6 +10,10 @@ import { useImageReveal } from "@/hooks/useImageReveal";
 import { motion } from "motion/react";
 import StyledLInkClient from "./StyledLInkClient";
 
+/**
+ * Estructura de datos utilizada para relacionar cada enlace
+ * con su imagen correspondiente.
+ */
 interface LinkType {
   title: string;
   href: string;
@@ -17,8 +21,27 @@ interface LinkType {
 }
 
 const SustainableRetreatClient = () => {
-
+  /**
+   * useImageReveal controla el sistema de imágenes.
+   *
+   * imgContainerRef → referencia al contenedor donde están apiladas
+   *                    todas las imágenes.
+   *
+   * handleFocus → función que los enlaces utilizarán para indicar
+   *               qué imagen debe revelarse.
+   */
   const { imgContainerRef, handleFocus } = useImageReveal();
+
+  /**
+   * Cada elemento contiene:
+   *
+   * - title → texto que aparecerá en el enlace.
+   * - href  → destino del enlace.
+   * - img   → imagen asociada al enlace.
+   *
+   * El índice del elemento dentro de este array es también el
+   * data-index utilizado para relacionar enlaces e imágenes.
+   */
   const links: LinkType[] = [
     {
       title: "ELEMENTIS Story",
@@ -49,7 +72,30 @@ const SustainableRetreatClient = () => {
 
   return (
     <>
-      <div ref={imgContainerRef} className="relative overflow-hidden md:w-fit">
+      {/*
+       * ============================================================
+       * CONTENEDOR DE IMÁGENES
+       * ============================================================
+       *
+       * Todas las imágenes están dentro del mismo contenedor.
+       *
+       * imgContainerRef permite que useImageReveal pueda localizar
+       * posteriormente una imagen concreta mediante data-index.
+       */}
+      <div
+        ref={imgContainerRef}
+        className="relative overflow-hidden md:w-fit"
+      >
+        {/*
+         * Imagen invisible utilizada como placeholder.
+         *
+         * Aunque visualmente no se muestra, mantiene las dimensiones
+         * del contenedor antes de que las imágenes absolutas entren
+         * en funcionamiento.
+         *
+         * Se utiliza la última imagen únicamente como referencia
+         * para establecer las dimensiones correctas.
+         */}
         <Image
           src={links[links.length - 1].img}
           alt="placeholder"
@@ -57,6 +103,26 @@ const SustainableRetreatClient = () => {
           className="invisible w-full max-md:aspect-[0.82] md:h-full md:w-auto"
         />
 
+        {/*
+         * Generamos todas las imágenes dentro del mismo espacio.
+         *
+         * position: absolute + inset-0 hace que todas ocupen
+         * exactamente la misma posición.
+         *
+         * data-index permite que useImageReveal encuentre una
+         * imagen concreta.
+         *
+         * El z-index inicial crea una pila:
+         *
+         * Imagen 0 →  0
+         * Imagen 1 → -1
+         * Imagen 2 → -2
+         * Imagen 3 → -3
+         * Imagen 4 → -4
+         *
+         * Posteriormente useImageReveal modifica este z-index
+         * cuando una imagen es revelada.
+         */}
         {links.map((eachLink, i) => (
           <motion.div
             key={`image-${i + 1}`}
@@ -73,6 +139,20 @@ const SustainableRetreatClient = () => {
         ))}
       </div>
 
+      {/*
+       * ============================================================
+       * LISTA DE ENLACES
+       * ============================================================
+       *
+       * Cada enlace está asociado por índice a una de las imágenes.
+       *
+       * Cuando el usuario entra con el ratón sobre un StyledLink,
+       * este llama a:
+       *
+       * handleFocus(index, true)
+       *
+       * El hook recibe el índice y revela la imagen correspondiente.
+       */}
       <div className="-mx-8-25 grid grid-rows-5 divide-y divide-[#D1CCBF] border-y border-[#D1CCBF] md:col-span-2 md:col-start-2 md:row-start-2 md:mx-0">
         {links.map((eachLink, index) => (
           <StyledLInkClient
@@ -86,9 +166,7 @@ const SustainableRetreatClient = () => {
         ))}
       </div>
     </>
+  );
+};
 
-
-  )
-}
-
-export default SustainableRetreatClient
+export default SustainableRetreatClient;
