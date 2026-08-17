@@ -16,6 +16,7 @@ const Home = () => {
       <Innovation />
       <ElementisStory />
       <SustainableRetreat />
+      {/* <Form /> */}
     </main>
   );
 };

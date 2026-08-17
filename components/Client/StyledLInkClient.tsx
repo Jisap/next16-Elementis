@@ -319,6 +319,8 @@ const StyledLInkClient = ({
               {children}
             </div>
           </motion.div>
+
+          <NavigateSVG className="z-20 mr-2.5" animateOnHover />
         </MotionConfig>
       </motion.div>
     </Link>
