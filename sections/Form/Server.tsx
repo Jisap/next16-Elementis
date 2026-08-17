@@ -11,6 +11,9 @@ import NavigateSVG from "@/components/SVGComponents/NavigateSVG";
 
 import React from 'react'
 import ParallaxContainer from "@/components/Client/ParallaxContainer";
+import Label from "@/components/Server/Label";
+import Input from "@/components/Server/Input";
+import Select from "@/components/Server/Select";
 
 const FormServer = () => {
 
@@ -37,9 +40,28 @@ const FormServer = () => {
           <div className="w-full text-xl font-light md:text-30">
             Take the First step
           </div>
+
           <div className="mt-8 mb-10 text-base md:text-lg">
             Become a member of ELEMENTIS Club and take the first step towards a
             life filled with purpose, Wellness, and connection
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <Label label="Full Name">
+              <Input type="text" placeholder="Enter your name" />
+            </Label>
+            <Label label="Email Address">
+              <Input type="email" placeholder="Enter your email address" />
+            </Label>
+            <Label label="Phone number">
+              <div className="flex -space-x-4 md:-space-x-6">
+                <Select options="dial code" />
+                <Input type="tel" placeholder="Enter your phone number"></Input>
+              </div>
+            </Label>
+            <Label label="Country">
+              <Select options="countries" />
+            </Label>
           </div>
         </Form>
       </div>

@@ -40,7 +40,7 @@ export default function Checkbox({
             >
                 {checked && <CheckBoxIcon className="h-auto w-1-75" />}
             </span>
-            <div className="text-sm [line-height:1] md:text-base">{children}</div>
+            <div className="text-sm leading-none md:text-base">{children}</div>
         </label>
     );
 }
