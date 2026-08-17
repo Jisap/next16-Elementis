@@ -1,5 +1,6 @@
 import ContactUs from "@/components/Server/ContactUs";
 import DashedLink from "@/components/Server/DashedLink";
+import StayConnected from "@/components/Server/StayConnected";
 import LogoFull from "@/components/SVGComponents/LogoFull";
 import Link from "next/link";
 
@@ -81,6 +82,23 @@ const FooterServer = () => {
             ),
           )}
         </ol>
+
+        <ContactUs className="gap-y-8 text-base max-md:mt-16 md:hidden [&>div]:gap-x-5" />
+        <StayConnected className="justify-end gap-y-6 text-base leading-none max-md:mt-12 md:col-start-2 md:gap-y-12 [&_div]:gap-x-8 md:[&_div]:gap-x-10 [&_path]:[fill:#D1CCBF]" />
+      </div>
+
+      <div className="flex flex-col gap-y-4 bg-[#2B3530] px-3-75 py-7-5 text-xs text-[#D1CCBF] md:flex-row md:justify-between md:pb-10 md:text-base [&_.animated-underline]:h-px [&_.animated-underline]:bg-[#D1CCBF]">
+        <div className="md:flex-1">© 2025 ELEMENTIS. All Rights Reserved</div>
+        <Link href="https://elementis.co/privacy-terms">
+          <DashedLink className="w-fit cursor-pointer">
+            Policies and Terms
+          </DashedLink>
+        </Link>
+        <div className="flex flex-1 justify-end">
+          <DashedLink className="w-fit cursor-default">
+            Website cloned by Yash Ostwal
+          </DashedLink>
+        </div>
       </div>
     </div>
   )
