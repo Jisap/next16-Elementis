@@ -14,6 +14,7 @@ import ParallaxContainer from "@/components/Client/ParallaxContainer";
 import Label from "@/components/Server/Label";
 import Input from "@/components/Server/Input";
 import Select from "@/components/Server/Select";
+import Checkbox from "@/components/Client/Checkbox";
 
 const FormServer = () => {
 
@@ -63,6 +64,35 @@ const FormServer = () => {
               <Select options="countries" />
             </Label>
           </div>
+
+          <div className="mt-10 space-y-5 text-sm text-[#2b3530] md:text-base">
+            <p>I would like to receive information on ELEMENTIS.</p>
+            <div className="flex flex-wrap gap-4">
+              {categories.map((category) => (
+                <Checkbox key={category}>{category}</Checkbox>
+              ))}
+            </div>
+          </div>
+
+          <Checkbox className="mt-8-75" required={true}>
+            <span>
+              I agree to the{" "}
+              <Link href="" className="underline-[#2b3530] underline">
+                Policies and Terms
+              </Link>
+            </span>
+          </Checkbox>
+
+          <motion.button
+            type="submit"
+            className="mt-14 flex w-full cursor-pointer items-center justify-between px-6 py-5 text-base text-[#d1ccbf] md:text-lg"
+            initial={{ backgroundColor: "#2b3530" }}
+            whileHover={{ backgroundColor: "#304d3d" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <span>Sign up</span>
+            <NavigateSVG fill="#D1CCBF" />
+          </motion.button>
         </Form>
       </div>
     </div>

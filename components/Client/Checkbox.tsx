@@ -38,7 +38,7 @@ export default function Checkbox({
                     checked && "bg-[#2b3530]",
                 )}
             >
-                {checked && <CheckBoxIcon className="h-auto w-1-75" />}
+                {checked ? <CheckBoxIcon className="h-auto w-1-75" /> : null}
             </span>
             <div className="text-sm leading-none md:text-base">{children}</div>
         </label>

@@ -10,7 +10,7 @@ const CheckBoxIcon = (props: { className: string }) => (
     <path
       d="M0.888916 2.2223L3.61114 4.94453L7.88892 0.666748"
       stroke="#D1CCBF"
-      stroke-width="1.5px"
+      strokeWidth="1.5px"
       data-v-5cbf8aa5=""
       fill="none"
     ></path>
