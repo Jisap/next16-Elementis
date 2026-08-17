@@ -1,6 +1,7 @@
 import Innovation from "@/components/Client/Innovation";
 import Navbar from "@/components/Client/Navbar";
 import ElementisStory from "@/sections/ElementisStory";
+import Footer from "@/sections/Footer";
 import Form from "@/sections/Form";
 import Hero from "@/sections/Hero/Index";
 import Introduction from "@/sections/Introduction";
@@ -18,6 +19,7 @@ const Home = () => {
       <ElementisStory />
       <SustainableRetreat />
       <Form />
+      <Footer />
     </main>
   );
 };
