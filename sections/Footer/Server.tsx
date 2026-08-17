@@ -60,12 +60,12 @@ const FooterServer = () => {
           <ContactUs className="mt-17-5 hidden w-fit flex-col gap-y-8 text-base max-md:mt-16 md:flex [&>div]:gap-6 md:[&>div]:gap-4" />
         </div>
 
-        <ol className="mt-20 grid grid-flow-col-dense grid-cols-2 grid-rows-5 gap-y-5 overflow-hidden text-xl [line-height:1.1] font-light text-nowrap md:mt-0 md:gap-y-6-5 md:text-30">
+        <ol className="mt-20 grid grid-flow-col-dense grid-cols-2 grid-rows-5 gap-y-5 overflow-hidden text-xl leading-[1.1] font-light text-nowrap md:mt-0 md:gap-y-6-5 md:text-30">
           {data.map((eachColData, i) =>
             i === 0 ? (
               <div
                 key={"list-item-" + (i + 1)}
-                className="underline decoration-[#D1CCBF] decoration-[1px] underline-offset-2"
+                className="underline decoration-[#D1CCBF] decoration-1 underline-offset-2"
               >
                 {eachColData.link}
               </div>
@@ -73,7 +73,7 @@ const FooterServer = () => {
               <Link href={eachColData.href} key={"list-item" + (i + 1)}>
                 <DashedLink
                   key={"list-item-" + (i + 1)}
-                  className="w-fit [line-height:1] [&_.animated-underline]:bg-[#D1CCBF]"
+                  className="w-fit leading-none [&_.animated-underline]:bg-[#D1CCBF]"
                 >
                   {eachColData.link}
                 </DashedLink>
